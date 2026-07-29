@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="noise"/>
+  <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+</filter>
+</defs>
+
+<g filter="url(#rough)">
+<circle cx="390" cy="300" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="500" cy="285" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="610" cy="310" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="335" cy="405" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="445" cy="395" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="555" cy="395" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="665" cy="420" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="360" cy="520" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="470" cy="500" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="585" cy="510" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="635" cy="610" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="515" cy="620" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/><circle cx="395" cy="620" r="70" fill="#DC4770" stroke="#111111" stroke-width="16"/>
+<circle cx="449.75" cy="455" r="11.049999999999999" fill="#111"/><circle cx="560.25" cy="455" r="11.049999999999999" fill="#111"/><path d="M 483.75 501.75 Q 505 507.7 526.25 501.75" fill="none" stroke="#111" stroke-width="10.2" stroke-linecap="round"/>
+<circle cx="255" cy="500" r="30" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+<circle cx="745" cy="500" r="30" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+<circle cx="445" cy="730" r="32" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+<circle cx="555" cy="730" r="32" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+</g>
+</svg>

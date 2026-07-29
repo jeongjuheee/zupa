@@ -1,0 +1,85 @@
+{
+  "packId": "fruit_characters_vol1",
+  "name": "Fruit Characters Vol.1",
+  "version": 1,
+  "style": "rough hand-drawn, deliberately simple, slightly silly",
+  "format": "SVG",
+  "background": "transparent",
+  "stickers": [
+    {
+      "id": "01",
+      "file": "01_peach.svg",
+      "nameKo": "복숭아"
+    },
+    {
+      "id": "02",
+      "file": "02_apple.svg",
+      "nameKo": "사과"
+    },
+    {
+      "id": "03",
+      "file": "03_banana.svg",
+      "nameKo": "바나나"
+    },
+    {
+      "id": "04",
+      "file": "04_blueberry.svg",
+      "nameKo": "블루베리"
+    },
+    {
+      "id": "05",
+      "file": "05_mango.svg",
+      "nameKo": "망고"
+    },
+    {
+      "id": "06",
+      "file": "06_strawberry.svg",
+      "nameKo": "딸기"
+    },
+    {
+      "id": "07",
+      "file": "07_pineapple.svg",
+      "nameKo": "파인애플"
+    },
+    {
+      "id": "08",
+      "file": "08_grape.svg",
+      "nameKo": "포도"
+    },
+    {
+      "id": "09",
+      "file": "09_apricot.svg",
+      "nameKo": "살구"
+    },
+    {
+      "id": "10",
+      "file": "10_raspberry.svg",
+      "nameKo": "라즈베리"
+    },
+    {
+      "id": "11",
+      "file": "11_watermelon.svg",
+      "nameKo": "수박"
+    },
+    {
+      "id": "12",
+      "file": "12_kiwi.svg",
+      "nameKo": "키위"
+    },
+    {
+      "id": "13",
+      "file": "13_lemon.svg",
+      "nameKo": "레몬"
+    },
+    {
+      "id": "14",
+      "file": "14_pear.svg",
+      "nameKo": "배"
+    },
+    {
+      "id": "15",
+      "file": "15_pomegranate.svg",
+      "nameKo": "석류"
+    }
+  ]
+}

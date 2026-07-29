@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="noise"/>
+  <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+</filter>
+</defs>
+
+<g filter="url(#rough)">
+<path d="M500 230 C650 225 760 345 710 535 C670 685 575 770 500 825 C420 770 325 690 285 535 C235 345 350 225 500 230Z"
+fill="#ED4D45" stroke="#111111" stroke-width="24"/>
+<path d="M355 250 L320 180 L405 205 L440 140 L500 205 L560 140 L595 205 L680 180 L645 250 C565 220 435 220 355 250Z"
+fill="#5C9E45" stroke="#111111" stroke-width="22"/>
+<ellipse cx="390" cy="360" rx="8" ry="14" fill="#FFD36A" transform="rotate(-15 390 360)"/><ellipse cx="500" cy="340" rx="8" ry="14" fill="#FFD36A" transform="rotate(-15 500 340)"/><ellipse cx="610" cy="365" rx="8" ry="14" fill="#FFD36A" transform="rotate(0 610 365)"/><ellipse cx="350" cy="460" rx="8" ry="14" fill="#FFD36A" transform="rotate(-15 350 460)"/><ellipse cx="455" cy="450" rx="8" ry="14" fill="#FFD36A" transform="rotate(-10 455 450)"/><ellipse cx="565" cy="455" rx="8" ry="14" fill="#FFD36A" transform="rotate(-15 565 455)"/><ellipse cx="650" cy="470" rx="8" ry="14" fill="#FFD36A" transform="rotate(-5 650 470)"/><ellipse cx="390" cy="565" rx="8" ry="14" fill="#FFD36A" transform="rotate(10 390 565)"/><ellipse cx="505" cy="555" rx="8" ry="14" fill="#FFD36A" transform="rotate(-5 505 555)"/><ellipse cx="605" cy="570" rx="8" ry="14" fill="#FFD36A" transform="rotate(-10 605 570)"/><ellipse cx="445" cy="655" rx="8" ry="14" fill="#FFD36A" transform="rotate(5 445 655)"/><ellipse cx="555" cy="650" rx="8" ry="14" fill="#FFD36A" transform="rotate(-10 555 650)"/>
+<circle cx="425" cy="470" r="13" fill="#111"/><circle cx="575" cy="470" r="13" fill="#111"/><ellipse cx="500" cy="525" rx="14" ry="18" fill="none" stroke="#111" stroke-width="10"/>
+<circle cx="235" cy="535" r="35" fill="#FFFDF8" stroke="#111111" stroke-width="20"/>
+<circle cx="765" cy="535" r="35" fill="#FFFDF8" stroke="#111111" stroke-width="20"/>
+<circle cx="430" cy="825" r="35" fill="#FFFDF8" stroke="#111111" stroke-width="20"/>
+<circle cx="570" cy="825" r="35" fill="#FFFDF8" stroke="#111111" stroke-width="20"/>
+</g>
+</svg>

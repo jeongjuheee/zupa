@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="noise"/>
+  <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+</filter>
+</defs>
+
+<g filter="url(#rough)">
+<path d="M505 190 L510 125" stroke="#111111" stroke-width="22"/>
+<path d="M515 135 L590 155 L560 210 L500 180Z" fill="#6EA34F" stroke="#111111" stroke-width="20"/>
+<circle cx="430" cy="300" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="540" cy="300" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="365" cy="405" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="480" cy="410" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="595" cy="405" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="420" cy="520" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="540" cy="520" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/><circle cx="485" cy="630" r="82" fill="#7B55B6" stroke="#111111" stroke-width="18"/>
+<circle cx="436.0" cy="420" r="10.4" fill="#111"/><circle cx="524.0" cy="420" r="10.4" fill="#111"/><path d="M 460.0 464.0 Q 480 469.6 500.0 464.0" fill="none" stroke="#111" stroke-width="9.600000000000001" stroke-linecap="round"/>
+<circle cx="270" cy="435" r="30" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+<circle cx="690" cy="435" r="30" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+<circle cx="440" cy="735" r="32" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+<circle cx="535" cy="735" r="32" fill="#FFFDF8" stroke="#111111" stroke-width="18"/>
+</g>
+</svg>

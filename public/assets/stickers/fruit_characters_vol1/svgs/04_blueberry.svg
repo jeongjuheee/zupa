@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="noise"/>
+  <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+</filter>
+</defs>
+
+<g filter="url(#rough)">
+<path d="M225 570 Q165 585 145 630 Q135 665 175 680 Q215 690 245 650" fill="#FFFDF8" stroke="#111111" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M775 570 Q835 585 855 630 Q865 665 825 680 Q785 690 755 650" fill="#FFFDF8" stroke="#111111" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M405 755 Q390 820 435 835 Q475 845 495 785" fill="#FFFDF8" stroke="#111111" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M595 755 Q610 820 565 835 Q525 845 505 785" fill="#FFFDF8" stroke="#111111" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+
+<circle cx="500" cy="500" r="255" fill="#4969B2" stroke="#111111" stroke-width="24"/>
+<path d="M500 240 L530 285 L585 280 L550 325 L565 380 L510 360 L465 390 L460 335 L415 300 L470 285Z"
+fill="#5F82CE" stroke="#111111" stroke-width="18"/>
+<circle cx="425" cy="510" r="13" fill="#111"/><circle cx="575" cy="510" r="13" fill="#111"/><path d="M 475 565 Q 500 572 525 565" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+</g>
+</svg>

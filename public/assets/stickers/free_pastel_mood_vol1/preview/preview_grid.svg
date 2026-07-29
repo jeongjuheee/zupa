@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="1060" viewBox="0 0 1180 1060">
+<rect width="1180" height="1060" fill="#FAFAFC"/>
+<text x="40" y="36" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#111">Pastel Mood Pack Vol.1 — 11 SVG Stickers</text>
+
+    <g transform="translate(40,50)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/01_lucky_day.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">01 · 럭키한 하루♧♪°*</text>
+    </g>
+    <g transform="translate(420,50)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/02_sadang_haeng.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">02 · 사당행 ♥</text>
+    </g>
+    <g transform="translate(800,50)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/03_shocking_day.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">03 · 경악스런 하루♡♪⁺</text>
+    </g>
+    <g transform="translate(40,300)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/04_behind_today.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">04 · 오늘의 비하인드</text>
+    </g>
+    <g transform="translate(420,300)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/05_cant_resist.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">05 · 이건 못참지</text>
+    </g>
+    <g transform="translate(800,300)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/06_so_hot.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">06 · 너무 더워...</text>
+    </g>
+    <g transform="translate(40,550)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/07_success_today.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">07 · 오늘도 성공✨</text>
+    </g>
+    <g transform="translate(420,550)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/08_happy_max.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">08 · 행복 MAX♡</text>
+    </g>
+    <g transform="translate(800,550)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/09_michyeossda_positive.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">09 · 미쳤다..(Positive)</text>
+    </g>
+    <g transform="translate(230,800)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/10_cute_kkk.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">10 · 귀엽다...ㅋ</text>
+    </g>
+    <g transform="translate(610,800)">
+      <rect x="0" y="0" width="340" height="210" rx="24" fill="#FFFFFF" stroke="#ECECEC"/>
+      <image href="../svgs/11_wannaes.svg" x="10" y="10" width="320" height="160" preserveAspectRatio="xMidYMid meet"/>
+      <text x="170" y="192" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#555">11 · 완.내.스</text>
+    </g>
+</svg>
