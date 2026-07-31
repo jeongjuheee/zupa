@@ -1079,7 +1079,9 @@ export function ZupaApp() {
             />
             <div className="onboarding-body nickname-content">
               <OnboardingProgress current={2} />
-              <span className="nickname-face" aria-hidden="true" />
+              <span className="nickname-face" aria-hidden="true">
+                <span className="nickname-face__features" />
+              </span>
               <OnboardingLead
                 align="center"
                 title="어떻게 불러드릴까요?"

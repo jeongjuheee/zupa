@@ -1959,9 +1959,12 @@ html {
 
 .landing-canvas {
   position: relative;
-  min-height: 100dvh;
+  display: flex;
+  min-height: 100svh;
+  height: 100svh;
+  flex-direction: column;
   overflow: hidden;
-  padding: 30px 36px 100px;
+  padding: clamp(18px, 4vh, 30px) clamp(24px, 8vw, 36px) calc(14px + env(safe-area-inset-bottom));
   color: var(--navy);
 }
 
@@ -2169,10 +2172,9 @@ html {
 }
 
 .landing-cta-visual {
-  position: absolute;
-  right: 36px;
-  bottom: calc(18px + env(safe-area-inset-bottom));
-  left: 36px;
+  position: static;
+  flex: 0 0 58px;
+  margin-top: auto;
   display: grid;
   height: 58px;
   place-items: center;
@@ -2186,18 +2188,16 @@ html {
 .landing-start-hotspot {
   z-index: 2;
   top: auto;
-  right: 36px;
-  bottom: calc(18px + env(safe-area-inset-bottom));
-  left: 36px;
+  right: clamp(24px, 8vw, 36px);
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  left: clamp(24px, 8vw, 36px);
   height: 58px;
   border-radius: 14px;
 }
 
 @media (max-height: 740px) {
-  .landing-canvas { padding-top: 22px; }
-  .landing-journal { transform: scale(.86); margin-block: 8px -10px; }
-  .landing-chart { height: 145px; }
-  .landing-copy { margin-top: 13px; }
+  .landing-journal { transform: scale(.9); transform-origin: top center; }
+  .landing-chart { height: 154px; }
 }
 @media (max-width: 340px) {
   .screen {
@@ -2762,29 +2762,71 @@ html {
   position: relative;
   overflow: hidden;
   color: var(--navy);
+  width: 142px;
+  height: 142px;
+  margin-top: 32px;
+  border: 5px solid var(--navy);
+  border-radius: 50%;
+  background: var(--lilac);
+  box-shadow: 7px 8px 0 var(--navy);
 }
 .nickname-face::before {
   content: "";
   position: absolute;
-  top: 35%;
-  left: 28%;
-  width: 12px;
-  height: 12px;
+  top: 22%;
+  left: 22%;
+  width: 56%;
+  height: 56%;
   border-radius: 50%;
-  background: currentColor;
-  box-shadow: 35px 0 0 currentColor;
+  border: 5px solid currentColor;
 }
 .nickname-face::after {
   content: "";
   position: absolute;
-  top: 54%;
+  top: 53%;
   left: 50%;
-  width: 38px;
-  height: 18px;
+  width: 29%;
+  height: 14%;
   border: solid currentColor;
-  border-width: 0 0 3px;
+  border-width: 0 0 5px;
   border-radius: 0 0 28px 28px;
   transform: translateX(-50%);
+}
+.nickname-face__features::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 38%;
+  left: 35%;
+  width: 8%;
+  height: 8%;
+  border-radius: 50%;
+  background: var(--navy);
+}
+.nickname-face__features::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 38%;
+  left: 58%;
+  width: 8%;
+  height: 8%;
+  border-radius: 50%;
+  background: var(--navy);
+}
+.nickname-content .nickname-face {
+  width: 142px;
+  height: 142px;
+  margin-top: 32px;
+  border-width: 5px;
+  font-size: 0;
+}
+@media (max-height: 720px) {
+  .nickname-content .nickname-face {
+    width: 124px;
+    height: 124px;
+    margin-top: 20px;
+  }
 }
 
 .consent-screen,
@@ -2877,40 +2919,36 @@ html {
 /* The Kakao in-app browser on iPhone 15 leaves a short visual viewport. */
 @media (max-height: 820px) {
   .landing-canvas {
-    height: 100svh;
-    min-height: 100svh;
-    padding: 16px 28px 78px;
+    padding-top: 16px;
   }
   .landing-canvas__header { font-size: 24px; }
   .landing-journal {
-    height: 194px;
-    margin: 10px auto 0;
-    transform: scale(.76);
+    height: 222px;
+    margin: 15px auto 4px;
+    transform: scale(.88);
     transform-origin: top center;
   }
   .landing-chart {
-    height: 126px;
+    height: 150px;
     margin-top: 0;
   }
-  .landing-line-chart { height: 96px; }
-  .landing-copy { margin-top: 9px; }
-  .landing-copy h1 { font-size: 26px; }
-  .landing-copy p { margin-top: 5px; font-size: 13px; }
+  .landing-line-chart { height: 112px; }
+  .landing-copy { margin-top: 12px; }
+  .landing-copy h1 { font-size: 28px; }
+  .landing-copy p { margin-top: 7px; font-size: 13px; }
   .landing-cta-visual,
   .landing-start-hotspot {
-    right: 28px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    left: 28px;
     height: 52px;
   }
+  .landing-cta-visual { flex-basis: 52px; }
   .landing-cta-visual { font-size: 18px; }
 }
 
 @media (max-height: 700px) {
   .landing-canvas { padding-top: 12px; }
-  .landing-journal { height: 168px; transform: scale(.66); }
-  .landing-chart { height: 108px; }
-  .landing-line-chart { height: 80px; }
+  .landing-journal { height: 190px; margin: 8px auto 0; transform: scale(.76); }
+  .landing-chart { height: 128px; }
+  .landing-line-chart { height: 94px; }
   .landing-copy h1 { font-size: 24px; }
   .landing-copy p { font-size: 12px; }
   .welcome-pack-screen .sticker-canvas-wrap { flex-basis: 126px; }
