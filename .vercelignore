@@ -1,0 +1,24 @@
+# Local dependencies and generated builds
+node_modules
+.next
+dist
+.vinext
+.wrangler
+
+# Local work products and development-only sources
+.git
+.agents
+.codex
+.openai
+work
+outputs
+build
+worker
+examples
+tests
+drizzle
+
+# Local-only configuration and diagnostics
+.env*
+*.log
+*.tsbuildinfo

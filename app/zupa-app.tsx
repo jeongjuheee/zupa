@@ -1079,7 +1079,7 @@ export function ZupaApp() {
             />
             <div className="onboarding-body nickname-content">
               <OnboardingProgress current={2} />
-              <span className="nickname-face">☺</span>
+              <span className="nickname-face" aria-hidden="true" />
               <OnboardingLead
                 align="center"
                 title="어떻게 불러드릴까요?"
@@ -2185,7 +2185,6 @@ function LandingCanvas({ wave }: { wave: LandingWave }) {
         <h1>오늘의 마음을<br />주파수로 남겨요</h1>
         <p>사진 네 장과 짧은 기록이 나만의 감정 파동이 돼요</p>
       </div>
-      <div className="landing-progress"><i className="active" /><i /><i /><i /><i /></div>
       <div className="landing-cta-visual">시작하기</div>
     </div>
   );
