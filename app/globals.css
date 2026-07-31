@@ -1173,6 +1173,21 @@ textarea.input {
   grid-template-columns: repeat(4, 1fr);
   padding: 10px 8px calc(10px + env(safe-area-inset-bottom));
 }
+
+/*
+ * Primary navigation remains available while the content beneath it scrolls.
+ * It is rendered only on the top-level Home / Market / My paths (and their
+ * browse lists); record, report, onboarding and settings-detail paths do not
+ * mount this component.  The max() offsets keep it aligned with the 480px app
+ * shell on desktop while retaining the normal 16px mobile gutter.
+ */
+.home-nav {
+  position: fixed;
+  z-index: 30;
+  left: max(16px, calc(50vw - 224px));
+  right: max(16px, calc(50vw - 224px));
+  bottom: calc(14px + env(safe-area-inset-bottom));
+}
 .nav button {
   border: 0;
   background: transparent;
@@ -2451,8 +2466,8 @@ html {
 
 .home-screen .home-nav,
 .mock-screen .home-nav {
-  left: 16px;
-  right: 16px;
+  left: max(16px, calc(50vw - 224px));
+  right: max(16px, calc(50vw - 224px));
   bottom: calc(14px + env(safe-area-inset-bottom));
   border: var(--home-border);
   border-radius: 28px;
@@ -3270,7 +3285,7 @@ html {
 .market-outcome h1 { margin: 10px 0 0; font-size: 23px; }
 .market-outcome p { max-width: 260px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .market-outcome-actions { display: grid; width: 100%; gap: 8px; margin-top: 18px; }
-.market-screen .home-nav { left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); border: var(--market-border); border-radius: 28px; background: var(--surface); box-shadow: none; padding: 4px; }
+.market-screen .home-nav { left: max(16px, calc(50vw - 224px)); right: max(16px, calc(50vw - 224px)); bottom: calc(14px + env(safe-area-inset-bottom)); border: var(--market-border); border-radius: 28px; background: var(--surface); box-shadow: none; padding: 4px; }
 
 @media (max-height: 720px) {
   .market-header { min-height: 48px; margin-bottom: 10px; }
@@ -3335,7 +3350,7 @@ html {
 .my-logout-button { min-height: 42px; border-radius: 12px; font-size: 12px; }
 .settings-content { display: grid; align-content: start; gap: 16px; padding-top: 8px; }.settings-intro { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }.settings-group { display: grid; gap: 7px; }.settings-group h2 { margin: 0; padding-inline: 3px; color: var(--navy); font-size: 13px; }.settings-version { display: grid; min-height: 150px; align-content: center; gap: 8px; border: var(--my-border); border-radius: var(--my-radius); padding: 24px; background: var(--surface); text-align: center; }.settings-version span { color: var(--blue-strong); font-size: 13px; font-weight: 900; }.settings-version b { font-size: 18px; }.settings-version small { color: var(--muted); font-size: 11px; }.settings-withdraw-modal .my-modal-icon { color: #b33232; }
 .settings-content--compact { gap: 0; padding-top: 0; }.settings-list { overflow: hidden; border: 1.5px solid var(--navy); border-radius: 14px; background: #fffdf8; }.settings-list .my-menu-row { min-height: 56px; padding-inline: 16px; border-bottom-color: rgba(32,53,83,.14); }.settings-list .my-menu-row:nth-child(1) { background: #edf7ff; }.settings-list .my-menu-row:nth-child(2) { background: #f5f0ff; }.settings-list .my-menu-row:nth-child(3) { background: #fff1e9; }.settings-list .my-menu-row:nth-child(4) { background: #edf8f2; }.settings-list .my-menu-row > span { gap: 0; }.settings-list .my-menu-row b { font-size: 13px; font-weight: 800; }.settings-list .my-menu-row > i { color: #203553; }.settings-list .my-menu-row > em { color: #58718f; }
-.my-screen .home-nav { left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); border: var(--my-border); border-radius: 28px; background: var(--surface); box-shadow: none; padding: 4px; }
+.my-screen .home-nav { left: max(16px, calc(50vw - 224px)); right: max(16px, calc(50vw - 224px)); bottom: calc(14px + env(safe-area-inset-bottom)); border: var(--my-border); border-radius: 28px; background: var(--surface); box-shadow: none; padding: 4px; }
 
 .my-profile-screen { padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
 .my-profile-form { display: grid; align-content: start; justify-items: center; gap: 10px; }
