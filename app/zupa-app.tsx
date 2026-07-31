@@ -516,8 +516,9 @@ export function ZupaApp() {
     const month = calendarMonth.getMonth();
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const weekCount = Math.max(5, Math.ceil((firstDay + daysInMonth) / 7));
-    return Array.from({ length: weekCount * 7 }, (_, index) => {
+    // Keep a consistent six-week diary grid.  Shorter months retain the
+    // same rhythm with trailing empty cells instead of stretching each day.
+    return Array.from({ length: 42 }, (_, index) => {
       const day = index - firstDay + 1;
       return day > 0 && day <= daysInMonth ? day : null;
     });

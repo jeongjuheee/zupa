@@ -2347,9 +2347,11 @@ html {
 
 .calendar-grid {
   gap: 4px;
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .calendar-grid span {
+  aspect-ratio: 1;
   border-radius: 8px;
   background: #eef7fc;
   color: #8b9cad;
