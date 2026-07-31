@@ -9,11 +9,8 @@ dist
 .git
 .agents
 .codex
-.openai
 work
 outputs
-build
-worker
 examples
 tests
 drizzle
