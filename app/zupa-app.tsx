@@ -276,6 +276,7 @@ const stepMap: Partial<Record<Screen, number>> = {
 
 export function ZupaApp() {
   const [screen, setScreen] = useState<Screen>("landing");
+  const [reportReturnScreen, setReportReturnScreen] = useState<Screen>("home");
   const [demoMode, setDemoMode] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -654,6 +655,11 @@ export function ZupaApp() {
     timeline: reportSource.timeline || { 아침: 46, 낮: 62, 저녁: 74, 밤: 58 },
   };
   const hasUnsavedChanges = draftReportText !== savedReportText;
+
+  function openReport(returnScreen: Screen = "home") {
+    setReportReturnScreen(returnScreen);
+    setScreen("report");
+  }
 
   async function saveReport() {
     if (isSavingReport) return;
@@ -1274,7 +1280,7 @@ export function ZupaApp() {
           </section>
           <button
             className="week-card home-card-button"
-            onClick={() => setScreen("report")}
+            onClick={() => openReport()}
           >
             <div>
               <b>최근 7일의 파동</b>
@@ -1293,7 +1299,7 @@ export function ZupaApp() {
           <div className="home-promo-grid">
             <section
               className="promo-card lilac home-promo-button"
-              onClick={() => setScreen("report")}
+              onClick={() => openReport()}
             >
               <small>MONTHLY REPORT</small>
               <b>7월 마음 리포트</b>
@@ -1324,7 +1330,7 @@ export function ZupaApp() {
               <BottomSheet>
                 <h2>오늘의 기록이 이미 있어요</h2>
                 <p>오늘은 이미 기록을 남겼어요. 기존 기록을 확인하거나 내용을 수정할 수 있어요.</p>
-                <Button variant="blue" onClick={() => { setRecordEntrySheet(null); setScreen("report"); }}>오늘 기록 보기</Button>
+                <Button variant="blue" onClick={() => { setRecordEntrySheet(null); openReport(); }}>오늘 기록 보기</Button>
                 <Button variant="outline" onClick={() => setRecordEntrySheet("confirm-edit")}>내용 수정하기</Button>
                 <Button variant="outline" onClick={() => setRecordEntrySheet(null)}>취소</Button>
               </BottomSheet>
@@ -1515,7 +1521,7 @@ export function ZupaApp() {
         <Shell>
           <main className="screen my-screen my-records-screen">
             <MyHeader title="지난 기록" onBack={() => setScreen("my")} />
-            {screen === "my-record-loading" ? <MyRecordSkeleton /> : <MyRecordList onOpen={() => setScreen("report")} onEmpty={() => setScreen("my-record-empty")} />}
+            {screen === "my-record-loading" ? <MyRecordSkeleton /> : <MyRecordList onOpen={() => openReport("my-records")} onEmpty={() => setScreen("my-record-empty")} />}
             <HomeBottomNav active="my" onNavigate={setScreen} />
           </main>
         </Shell>
@@ -2002,7 +2008,7 @@ export function ZupaApp() {
       return (
         <Shell>
           <main className="screen report-screen">
-            <ReportHeader title="오늘의 리포트" onBack={() => setScreen("home")} />
+            <ReportHeader title="오늘의 리포트" onBack={() => setScreen(reportReturnScreen)} />
             <ReportLoadingState />
           </main>
         </Shell>
@@ -2012,7 +2018,7 @@ export function ZupaApp() {
       return (
         <Shell>
           <main className="screen report-screen report-error-screen">
-            <ReportHeader title="오늘의 리포트" onBack={() => setScreen("home")} />
+            <ReportHeader title="오늘의 리포트" onBack={() => setScreen(reportReturnScreen)} />
             <section className="report-error-card">
               <span>!</span><h1>리포트를 불러오지 못했어요</h1><p>{reportError || "잠시 후 다시 시도해 주세요."}</p>
               <Button className="report-cta" variant="blue" onClick={() => { setReportError(""); setReportReady(true); setScreen("report"); }}>다시 시도</Button>
@@ -2086,7 +2092,7 @@ export function ZupaApp() {
     return (
       <Shell>
         <main className="screen report-screen">
-          <ReportHeader title="오늘의 리포트" onBack={() => setScreen("home")} action={{ label: "수정", onClick: () => { setDraftReportText(savedReportText); setIsEditing(true); setScreen("report-edit"); } }} />
+          <ReportHeader title="오늘의 리포트" onBack={() => setScreen(reportReturnScreen)} action={{ label: "수정", onClick: () => { setDraftReportText(savedReportText); setIsEditing(true); setScreen("report-edit"); } }} />
           <div className="report-content">
             <ReportSummaryCard report={reportData} />
             <FrequencyCard report={reportData} />
