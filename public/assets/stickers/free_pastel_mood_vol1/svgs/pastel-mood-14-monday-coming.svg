@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+  <g>
+    <path d="M123 206C89 206 64 183 64 154C64 134 76 117 95 108C96 82 119 62 148 62C164 62 179 68 189 78C204 58 229 46 258 46C289 46 316 61 330 83C345 71 364 64 385 64C418 64 446 84 456 112C465 108 475 106 486 106C521 106 549 130 549 160C549 190 521 214 486 214H430L445 244L401 214H123V206Z" fill="#FFFDFC" stroke="#2D2D2D" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="120" cy="159" r="5" fill="#B98AD9"/>
+    <circle cx="180" cy="200" r="5" fill="#B98AD9"/>
+    <circle cx="444" cy="171" r="5" fill="#B98AD9"/>
+    <circle cx="476" cy="151" r="5" fill="#B98AD9"/>
+    <text x="302" y="171" text-anchor="middle" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="47" font-weight="600" fill="#202020">월요일 is coming~</text>
+  </g>
+</svg>

@@ -2,75 +2,25 @@
   "packId": "free_pastel_mood_vol1",
   "name": "Pastel Mood Pack Vol.1",
   "version": 1,
+  "isFree": true,
   "license": "Original assets created for the user; no third-party image assets embedded.",
   "format": "SVG",
   "background": "transparent",
   "stickers": [
-    {
-      "id": "01",
-      "file": "01_lucky_day.svg",
-      "defaultText": "럭키한 하루♧♪°*",
-      "editableText": true
-    },
-    {
-      "id": "02",
-      "file": "02_sadang_haeng.svg",
-      "defaultText": "사당행 ♥",
-      "editableText": true
-    },
-    {
-      "id": "03",
-      "file": "03_shocking_day.svg",
-      "defaultText": "경악스런 하루♡♪⁺",
-      "editableText": true
-    },
-    {
-      "id": "04",
-      "file": "04_behind_today.svg",
-      "defaultText": "오늘의 비하인드",
-      "editableText": true
-    },
-    {
-      "id": "05",
-      "file": "05_cant_resist.svg",
-      "defaultText": "이건 못참지",
-      "editableText": true
-    },
-    {
-      "id": "06",
-      "file": "06_so_hot.svg",
-      "defaultText": "너무 더워...",
-      "editableText": true
-    },
-    {
-      "id": "07",
-      "file": "07_success_today.svg",
-      "defaultText": "오늘도 성공✨",
-      "editableText": true
-    },
-    {
-      "id": "08",
-      "file": "08_happy_max.svg",
-      "defaultText": "행복 MAX♡",
-      "editableText": true
-    },
-    {
-      "id": "09",
-      "file": "09_michyeossda_positive.svg",
-      "defaultText": "미쳤다..(Positive)",
-      "editableText": true
-    },
-    {
-      "id": "10",
-      "file": "10_cute_kkk.svg",
-      "defaultText": "귀엽다...ㅋ",
-      "editableText": true
-    },
-    {
-      "id": "11",
-      "file": "11_wannaes.svg",
-      "defaultText": "완.내.스",
-      "editableText": true
-    }
+    { "id": "01", "file": "01_lucky_day.svg", "editableText": true },
+    { "id": "02", "file": "02_sadang_haeng.svg", "editableText": true },
+    { "id": "03", "file": "03_shocking_day.svg", "editableText": true },
+    { "id": "04", "file": "04_behind_today.svg", "editableText": true },
+    { "id": "05", "file": "05_cant_resist.svg", "editableText": true },
+    { "id": "06", "file": "06_so_hot.svg", "editableText": true },
+    { "id": "07", "file": "07_success_today.svg", "editableText": true },
+    { "id": "08", "file": "08_happy_max.svg", "editableText": true },
+    { "id": "09", "file": "09_michyeossda_positive.svg", "editableText": true },
+    { "id": "10", "file": "10_cute_kkk.svg", "editableText": true },
+    { "id": "11", "file": "11_wannaes.svg", "editableText": true },
+    { "id": "12", "file": "pastel-mood-12-bangawayo.svg", "editableText": true },
+    { "id": "13", "file": "pastel-mood-13-good-day.svg", "editableText": true },
+    { "id": "14", "file": "pastel-mood-14-monday-coming.svg", "editableText": true },
+    { "id": "15", "file": "pastel-mood-15-heart-flutter.svg", "editableText": true }
   ]
 }
