@@ -302,6 +302,7 @@ export function ZupaApp() {
   const [isSavingImage, setIsSavingImage] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [imageSaveNotice, setImageSaveNotice] = useState<"success" | "error" | null>(null);
   const [saveError, setSaveError] = useState("");
   const [shareUnsupported, setShareUnsupported] = useState(false);
   const [showUnsavedWarning, setShowUnsavedWarning] = useState(false);
@@ -498,6 +499,12 @@ export function ZupaApp() {
     const timer = window.setTimeout(() => setSaveSuccess(false), 2200);
     return () => window.clearTimeout(timer);
   }, [saveSuccess]);
+
+  useEffect(() => {
+    if (!imageSaveNotice) return;
+    const timer = window.setTimeout(() => setImageSaveNotice(null), 3600);
+    return () => window.clearTimeout(timer);
+  }, [imageSaveNotice]);
 
   const legacyPasswordError = useMemo(() => {
     if (!password) return "";
@@ -700,11 +707,25 @@ export function ZupaApp() {
     if (isSavingImage || isRenderingImage || isSharing) return;
     setIsSavingImage(true);
     const image = await createReportImage();
-    if (image) {
+    if (!image) {
+      setImageSaveNotice("error");
+      setIsSavingImage(false);
+      return;
+    }
+    try {
       downloadReportImage(image);
       setSaveSuccess(true);
+      setImageSaveNotice("success");
+    } catch (cause) {
+      setSaveError(
+        cause instanceof Error
+          ? cause.message
+          : "이미지 저장에 실패했어요. 잠시 후 다시 시도해 주세요.",
+      );
+      setImageSaveNotice("error");
+    } finally {
+      setIsSavingImage(false);
     }
-    setIsSavingImage(false);
   }
 
   async function shareReport() {
@@ -2073,6 +2094,7 @@ export function ZupaApp() {
               <Button className="report-cta" variant="outline" disabled={isSavingImage || isRenderingImage || isSharing} onClick={() => void saveReportImage()}>{isSavingImage || isRenderingImage ? "이미지 생성 중…" : "이미지 저장"}</Button>
               <Button className="report-cta" variant="blue" disabled={isSavingImage || isRenderingImage || isSharing} onClick={() => void shareReport()}>{isSharing ? "공유 준비 중…" : "공유하기"}</Button>
             </div>
+            {imageSaveNotice ? <div className={`report-toast ${imageSaveNotice === "error" ? "is-error" : ""}`} role={imageSaveNotice === "error" ? "alert" : "status"}>{imageSaveNotice === "success" ? "이미지 저장을 시작했어요. 다운로드 파일에서 확인해 주세요." : "이미지 저장에 실패했어요. 잠시 후 다시 시도해 주세요."}</div> : null}
             {shareUnsupported ? <SaveGuideBottomSheet onClose={() => setShareUnsupported(false)} /> : null}
           </main>
         </Shell>
@@ -2085,6 +2107,7 @@ export function ZupaApp() {
             <ReportHeader title="오늘의 기록" onBack={() => setScreen("report")} />
             <ShareRecordCard report={reportData} />
             <div className="report-share-actions"><Button className="report-cta" variant="blue" onClick={() => void saveReportImage()}>사진으로 저장</Button><Button className="report-cta" variant="outline" onClick={() => setScreen("home")}>홈으로 이동</Button></div>
+            {imageSaveNotice ? <div className={`report-toast ${imageSaveNotice === "error" ? "is-error" : ""}`} role={imageSaveNotice === "error" ? "alert" : "status"}>{imageSaveNotice === "success" ? "이미지 저장을 시작했어요. 다운로드 파일에서 확인해 주세요." : "이미지 저장에 실패했어요. 잠시 후 다시 시도해 주세요."}</div> : null}
           </main>
         </Shell>
       );
@@ -2105,7 +2128,7 @@ export function ZupaApp() {
             <Button className="report-cta" variant="outline" disabled={isSavingImage || isRenderingImage} onClick={() => void saveReportImage()}>{isSavingImage ? "저장 중…" : "저장"}</Button>
             <Button className="report-cta" variant="blue" onClick={() => setScreen("report-share")}>공유</Button>
           </div>
-          {saveSuccess ? <div className="report-toast" role="status">저장 또는 공유를 완료했어요.</div> : null}
+          {imageSaveNotice ? <div className={`report-toast ${imageSaveNotice === "error" ? "is-error" : ""}`} role={imageSaveNotice === "error" ? "alert" : "status"}>{imageSaveNotice === "success" ? "이미지 저장을 시작했어요. 다운로드 파일에서 확인해 주세요." : "이미지 저장에 실패했어요. 잠시 후 다시 시도해 주세요."}</div> : saveSuccess ? <div className="report-toast" role="status">저장 또는 공유를 완료했어요.</div> : null}
         </main>
       </Shell>
     );

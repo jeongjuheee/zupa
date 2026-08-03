@@ -3495,7 +3495,7 @@ html {
 .report-record-link { border: 0; padding: 4px 0; background: transparent; color: var(--blue-strong); font-size: 10px; font-weight: 800; text-align: left; }
 .report-bottom-actions, .report-share-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; }
 .report-cta { min-height: 50px; border: var(--report-border); border-radius: var(--report-radius); font-size: 13px; font-weight: 900; }
-.report-toast { position: absolute; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom)); left: 16px; z-index: 4; border: var(--report-border); border-radius: 11px; padding: 11px; background: var(--navy); color: #fff; font-size: 11px; font-weight: 800; text-align: center; }
+.report-toast { position: absolute; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom)); left: 16px; z-index: 4; border: var(--report-border); border-radius: 11px; padding: 11px; background: var(--navy); color: #fff; font-size: 11px; font-weight: 800; text-align: center; }.report-toast.is-error { background: #b83e52; }
 
 .report-edit-screen { padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
 .report-editor { display: flex; min-height: 0; flex: 1; flex-direction: column; }
