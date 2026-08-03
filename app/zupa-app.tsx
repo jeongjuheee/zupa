@@ -38,6 +38,8 @@ import {
   type ShareFormat,
 } from "../lib/report-image-export";
 import { shareReportImage } from "../lib/native-share";
+import { clearRecordDraft } from "../lib/record-draft";
+import { clearDecorationDraft } from "../lib/diary-decoration-draft";
 import { TYPE_DEFINITIONS } from "../lib/metasensing/data";
 import { getPasswordChecks, isValidEmail, PASSWORD_POLICY_MESSAGE } from "../lib/password-policy";
 import type { MetaSensingReportContent } from "../lib/metasensing/types";
@@ -767,6 +769,8 @@ export function ZupaApp() {
     if (isDeletingTodayRecord) return;
     setIsDeletingTodayRecord(true);
     const today = toCalendarDateKey(new Date());
+    clearRecordDraft();
+    clearDecorationDraft("draft-decoration");
     setTodayRecord(null);
     setEditingTodayRecord(null);
     setRecordedDates((dates) => dates.filter((date) => date !== today));
