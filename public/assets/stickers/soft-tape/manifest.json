@@ -1,0 +1,25 @@
+{
+  "packId": "soft-tape",
+  "name": "\uB9D0\uB791 \uD14C\uC774\uD504",
+  "isFree": true,
+  "category": "tape",
+  "assetFormat": "svg",
+  "background": "transparent",
+  "stickers": [
+    { "id": "soft-tape-01", "file": "svgs/soft-tape-01-blue-check.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-02", "file": "svgs/soft-tape-02-coral-stripe.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-03", "file": "svgs/soft-tape-03-pink-crinkle.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-04", "file": "svgs/soft-tape-04-cream-paper.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-05", "file": "svgs/soft-tape-05-teal-torn.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-06", "file": "svgs/soft-tape-06-berry-pattern.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-07", "file": "svgs/soft-tape-07-pink-heart.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-08", "file": "svgs/soft-tape-08-lime-grid.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-09", "file": "svgs/soft-tape-09-ivory-diagonal.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-10", "file": "svgs/soft-tape-10-yellow-dot.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-11", "file": "svgs/soft-tape-11-coral-paper.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-12", "file": "svgs/soft-tape-12-mint-crinkle.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-13", "file": "svgs/soft-tape-13-pink-dot.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-14", "file": "svgs/soft-tape-14-vintage-check.svg", "width": 900, "height": 220 },
+    { "id": "soft-tape-15", "file": "svgs/soft-tape-15-today-kraft.svg", "width": 900, "height": 220 }
+  ]
+}

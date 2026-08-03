@@ -6,7 +6,10 @@ export type StickerAsset = {
   id: string;
   label: string;
   src: string;
-  pack: "Pastel Mood Pack" | "Fruit Characters Vol.1";
+  pack: "Pastel Mood Pack" | "Fruit Characters Vol.1" | "말랑 테이프";
+  /** Source artwork dimensions preserve the intended sticker aspect ratio. */
+  width?: number;
+  height?: number;
 };
 
 export type PlacedSticker = {
@@ -58,6 +61,22 @@ export const STICKER_ASSETS: StickerAsset[] = [
   { id: "fruit-lemon", label: "레몬", src: "/assets/stickers/fruit_characters_vol1/svgs/13_lemon.svg", pack: "Fruit Characters Vol.1" },
   { id: "fruit-pear", label: "배", src: "/assets/stickers/fruit_characters_vol1/svgs/14_pear.svg", pack: "Fruit Characters Vol.1" },
   { id: "fruit-pomegranate", label: "석류", src: "/assets/stickers/fruit_characters_vol1/svgs/15_pomegranate.svg", pack: "Fruit Characters Vol.1" },
+  // Free pack · 말랑 테이프 (transparent SVG source assets)
+  { id: "soft-tape-01", label: "블루 체크", src: "/assets/stickers/soft-tape/svgs/soft-tape-01-blue-check.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-02", label: "코랄 스트라이프", src: "/assets/stickers/soft-tape/svgs/soft-tape-02-coral-stripe.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-03", label: "핑크 크링클", src: "/assets/stickers/soft-tape/svgs/soft-tape-03-pink-crinkle.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-04", label: "크림 페이퍼", src: "/assets/stickers/soft-tape/svgs/soft-tape-04-cream-paper.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-05", label: "틸 찢김", src: "/assets/stickers/soft-tape/svgs/soft-tape-05-teal-torn.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-06", label: "베리 패턴", src: "/assets/stickers/soft-tape/svgs/soft-tape-06-berry-pattern.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-07", label: "핑크 하트", src: "/assets/stickers/soft-tape/svgs/soft-tape-07-pink-heart.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-08", label: "라임 그리드", src: "/assets/stickers/soft-tape/svgs/soft-tape-08-lime-grid.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-09", label: "아이보리 사선", src: "/assets/stickers/soft-tape/svgs/soft-tape-09-ivory-diagonal.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-10", label: "옐로 도트", src: "/assets/stickers/soft-tape/svgs/soft-tape-10-yellow-dot.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-11", label: "코랄 페이퍼", src: "/assets/stickers/soft-tape/svgs/soft-tape-11-coral-paper.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-12", label: "민트 크링클", src: "/assets/stickers/soft-tape/svgs/soft-tape-12-mint-crinkle.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-13", label: "핑크 도트", src: "/assets/stickers/soft-tape/svgs/soft-tape-13-pink-dot.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-14", label: "빈티지 체크", src: "/assets/stickers/soft-tape/svgs/soft-tape-14-vintage-check.svg", pack: "말랑 테이프", width: 900, height: 220 },
+  { id: "soft-tape-15", label: "투데이 크라프트", src: "/assets/stickers/soft-tape/svgs/soft-tape-15-today-kraft.svg", pack: "말랑 테이프", width: 900, height: 220 },
 ];
 
 export function StickerPreview({ assetId }: { assetId: string }) {
@@ -79,7 +98,7 @@ export function StickerPalette({
 }: {
   onAdd: (assetId: string) => void;
 }) {
-  const packs = ["Pastel Mood Pack", "Fruit Characters Vol.1"] as const;
+  const packs = ["Pastel Mood Pack", "Fruit Characters Vol.1", "말랑 테이프"] as const;
   return (
     <div className="sticker-palette" aria-label="스티커 선택">
       {packs.map((pack) => (

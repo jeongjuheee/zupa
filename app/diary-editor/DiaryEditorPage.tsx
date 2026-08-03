@@ -297,6 +297,10 @@ export function DiaryEditorPage({
   const addSticker = (assetId: string) => {
     const asset = STICKER_ASSETS.find((item) => item.id === assetId);
     if (!asset) return;
+    const stickerWidth = asset.width ? Math.min(340, asset.width / 2.65) : 200;
+    const stickerHeight = asset.width && asset.height
+      ? Math.round(stickerWidth * (asset.height / asset.width))
+      : 200;
     dispatch({
       type: "add",
       element: {
@@ -306,8 +310,8 @@ export function DiaryEditorPage({
         sourceUrl: asset.src,
         x: 440,
         y: 550,
-        width: 200,
-        height: 200,
+        width: stickerWidth,
+        height: stickerHeight,
         rotation: 0,
         scaleX: 1,
         scaleY: 1,
@@ -665,7 +669,7 @@ export function DiaryEditorPage({
               <span>{visibleStickerAssets.length}개 보유</span>
             </div>
             <div className="diary-editor__assets-scroll">
-              <div className="diary-editor__assets">
+              <div className={`diary-editor__assets ${selectedStickerPack === "말랑 테이프" ? "is-tape-pack" : ""}`}>
                 {visibleStickerAssets.map((asset) => (
                   <button key={asset.id} onClick={() => addSticker(asset.id)}>
                     <img src={asset.src} alt={asset.label} />
