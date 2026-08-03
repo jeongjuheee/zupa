@@ -222,6 +222,13 @@ export function DiaryEditorPage({
     createInitialState,
   );
   const [sheet, setSheet] = useState<Sheet>(null);
+  const stickerPacks = useMemo(
+    () => Array.from(new Set(STICKER_ASSETS.map((asset) => asset.pack))),
+    [],
+  );
+  const [selectedStickerPack, setSelectedStickerPack] = useState(
+    () => stickerPacks[0] ?? "",
+  );
   const [textValue, setTextValue] = useState("");
   const [confirming, setConfirming] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -246,6 +253,9 @@ export function DiaryEditorPage({
   const photoCount = state.scene.elements.filter(
     (element) => element.type === "photo",
   ).length;
+  const visibleStickerAssets = STICKER_ASSETS.filter(
+    (asset) => asset.pack === selectedStickerPack,
+  );
   useEffect(() => {
     const draft = loadDecorationDraft(recordId);
     if (
@@ -631,23 +641,47 @@ export function DiaryEditorPage({
       {error ? <div className="diary-editor__notice">{error}</div> : null}
       {sheet === "sticker" ? (
         <div className="diary-editor__sheet">
-          <BottomSheet>
-            <h2>스티커 보관함</h2>
-            <p>여러 개를 추가한 뒤 확인을 눌러 주세요.</p>
-            <div className="diary-editor__assets">
-              {STICKER_ASSETS.map((asset) => (
-                <button key={asset.id} onClick={() => addSticker(asset.id)}>
-                  <img src={asset.src} alt={asset.label} />
-                  <span>{asset.label}</span>
+          <BottomSheet className="diary-editor__sticker-sheet">
+            <div className="diary-editor__sheet-intro">
+              <h2>내 스티커</h2>
+              <p>스티커팩을 고른 뒤 원하는 스티커를 추가해 보세요.</p>
+            </div>
+            <div className="diary-editor__pack-tabs" role="tablist" aria-label="보유 스티커팩">
+              {stickerPacks.map((pack) => (
+                <button
+                  key={pack}
+                  type="button"
+                  role="tab"
+                  aria-selected={selectedStickerPack === pack}
+                  className={selectedStickerPack === pack ? "is-active" : ""}
+                  onClick={() => setSelectedStickerPack(pack)}
+                >
+                  {pack}
                 </button>
               ))}
             </div>
-            <Button variant="blue" onClick={() => setSheet(null)}>
-              확인
-            </Button>
-            <Button variant="outline" onClick={() => setSheet(null)}>
-              닫기
-            </Button>
+            <div className="diary-editor__pack-meta">
+              <strong>{selectedStickerPack}</strong>
+              <span>{visibleStickerAssets.length}개 보유</span>
+            </div>
+            <div className="diary-editor__assets-scroll">
+              <div className="diary-editor__assets">
+                {visibleStickerAssets.map((asset) => (
+                  <button key={asset.id} onClick={() => addSticker(asset.id)}>
+                    <img src={asset.src} alt={asset.label} />
+                    <span>{asset.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="diary-editor__sheet-actions">
+              <Button variant="blue" onClick={() => setSheet(null)}>
+                확인
+              </Button>
+              <Button variant="outline" onClick={() => setSheet(null)}>
+                닫기
+              </Button>
+            </div>
           </BottomSheet>
         </div>
       ) : null}

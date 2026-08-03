@@ -108,8 +108,8 @@ export function LinkText({
   );
 }
 
-export function BottomSheet({ children }: { children: ReactNode }) {
-  return <section className="ds-bottom-sheet">{children}</section>;
+export function BottomSheet({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <section className={`ds-bottom-sheet ${className}`.trim()}>{children}</section>;
 }
 
 export function LoadingIndicator({ label }: { label?: string }) {
