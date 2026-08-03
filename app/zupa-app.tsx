@@ -330,6 +330,7 @@ export function ZupaApp() {
   const [profileBio, setProfileBio] = useState("오늘의 마음을 차분하게 기록해요.");
   const [nicknameChecked, setNicknameChecked] = useState<boolean | null>(null);
   const [profileToast, setProfileToast] = useState(false);
+  const [recordDeleteToast, setRecordDeleteToast] = useState(false);
   const [withdrawPhrase, setWithdrawPhrase] = useState("");
   const [withdrawReason, setWithdrawReason] = useState("");
   const [withdrawConfirmed, setWithdrawConfirmed] = useState(false);
@@ -485,6 +486,12 @@ export function ZupaApp() {
     const timer = window.setTimeout(() => setProfileToast(false), 2200);
     return () => window.clearTimeout(timer);
   }, [profileToast]);
+
+  useEffect(() => {
+    if (!recordDeleteToast) return;
+    const timer = window.setTimeout(() => setRecordDeleteToast(false), 2400);
+    return () => window.clearTimeout(timer);
+  }, [recordDeleteToast]);
 
   useEffect(() => {
     if (!analysis) return;
@@ -744,7 +751,8 @@ export function ZupaApp() {
     setIsSharing(false);
   }
 
-  const [recordEntrySheet, setRecordEntrySheet] = useState<"existing" | "confirm-edit" | null>(null);
+  const [recordEntrySheet, setRecordEntrySheet] = useState<"existing" | "confirm-edit" | "confirm-delete" | null>(null);
+  const [isDeletingTodayRecord, setIsDeletingTodayRecord] = useState(false);
   function beginRecordEntry() {
     if (todayRecord?.recordDate === koreaDateKey()) {
       setScreen("home");
@@ -753,6 +761,23 @@ export function ZupaApp() {
     }
     setEditingTodayRecord(null);
     setScreen("photos");
+  }
+
+  function deleteTodayRecordAndStartAgain() {
+    if (isDeletingTodayRecord) return;
+    setIsDeletingTodayRecord(true);
+    const today = toCalendarDateKey(new Date());
+    setTodayRecord(null);
+    setEditingTodayRecord(null);
+    setRecordedDates((dates) => dates.filter((date) => date !== today));
+    setDiary("");
+    setPhotos(0);
+    setReportPhotoUrls([]);
+    setAnalysis(null);
+    setRecordEntrySheet(null);
+    setRecordDeleteToast(true);
+    setIsDeletingTodayRecord(false);
+    setScreen("home");
   }
   function navigatePrimary(next: Screen) {
     if (next === "photos") beginRecordEntry();
@@ -1346,6 +1371,7 @@ export function ZupaApp() {
             </section>
           </div>
           <HomeBottomNav active="home" onNavigate={navigatePrimary} />
+          {recordDeleteToast ? <div className="my-toast" role="status">오늘 기록을 삭제했어요.</div> : null}
           {recordEntrySheet === "existing" ? (
             <div className="record-unsaved-modal" role="dialog" aria-modal="true">
               <BottomSheet>
@@ -1353,6 +1379,7 @@ export function ZupaApp() {
                 <p>오늘은 이미 기록을 남겼어요. 기존 기록을 확인하거나 내용을 수정할 수 있어요.</p>
                 <Button variant="blue" onClick={() => { setRecordEntrySheet(null); openReport(); }}>오늘 기록 보기</Button>
                 <Button variant="outline" onClick={() => setRecordEntrySheet("confirm-edit")}>내용 수정하기</Button>
+                <Button variant="outline" className="record-delete-action" onClick={() => setRecordEntrySheet("confirm-delete")}>기록 삭제하기</Button>
                 <Button variant="outline" onClick={() => setRecordEntrySheet(null)}>취소</Button>
               </BottomSheet>
             </div>
@@ -1364,6 +1391,16 @@ export function ZupaApp() {
                 <p>내용을 수정하면 오늘의 주파수와 리포트가 다시 분석돼요. 기존에 꾸민 이미지는 수정 전 기록으로 만든 이미지로 보관되며, 수정 후 새로 꾸밀 수 있어요.</p>
                 <Button variant="blue" onClick={() => { setEditingTodayRecord(todayRecord); setRecordEntrySheet(null); setScreen("photos"); }}>수정하기</Button>
                 <Button variant="outline" onClick={() => setRecordEntrySheet("existing")}>취소</Button>
+              </BottomSheet>
+            </div>
+          ) : null}
+          {recordEntrySheet === "confirm-delete" ? (
+            <div className="record-unsaved-modal" role="dialog" aria-modal="true" aria-labelledby="delete-record-title">
+              <BottomSheet>
+                <h2 id="delete-record-title">오늘 기록을 삭제할까요?</h2>
+                <p>이 기기에 저장된 오늘의 기록, 사진, 리포트를 지우고 새로 작성해요. 삭제한 내용은 복구할 수 없어요.</p>
+                <Button variant="outline" className="record-delete-action" disabled={isDeletingTodayRecord} onClick={deleteTodayRecordAndStartAgain}>{isDeletingTodayRecord ? "삭제 중…" : "삭제하고 새로 작성하기"}</Button>
+                <Button variant="blue" disabled={isDeletingTodayRecord} onClick={() => setRecordEntrySheet("existing")}>취소</Button>
               </BottomSheet>
             </div>
           ) : null}
