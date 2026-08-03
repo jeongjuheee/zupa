@@ -567,6 +567,9 @@ export function DiaryEditorPage({
       <div className="diary-editor__toolbar">
         {selected ? (
           <>
+            {selected.type === "sticker" ? (
+              <button onClick={() => setSheet("sticker")}>스티커 추가</button>
+            ) : null}
             {selected.type !== "photo" ? (
               <button
                 onClick={() => dispatch({ type: "duplicate", id: selected.id })}
